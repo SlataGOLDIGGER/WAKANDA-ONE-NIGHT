@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Village NIRD – Résister aux Big Tech à l'école</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="hero" id="top">
+        <nav class="nav" aria-label="Navigation principale">
+            <div class="logo">Village NIRD</div>
+            <ul class="nav-links">
+                <li><a href="#contexte">Contexte</a></li>
+                <li><a href="#nird">Démarche NIRD</a></li>
+                <li><a href="#parcours">Parcours</a></li>
+                <li><a href="#quiz">Mini-quiz</a></li>
+                <li><a href="#ressources">Ressources</a></li>
+            </ul>
+        </nav>
+        <div class="hero-content">
+            <p class="tagline">Nuit de l'Info 2025</p>
+            <h1>Village NIRD – Résister aux Big Tech à l'école</h1>
+            <p class="subtitle">Un parcours interactif pour aider ton établissement scolaire à rejoindre un Numérique Inclusif, Responsable et Durable.</p>
+            <a class="btn primary" href="#contexte">Commencer le parcours</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="contexte" class="section two-column">
+            <div class="content">
+                <h2>Contexte : pourquoi résister aux Big Tech ?</h2>
+                <p>La dépendance aux GAFAM enferme les établissements dans des écosystèmes fermés, rend les données vulnérables et pèse lourd sur les budgets. Les licences propriétaires entretiennent l'obsolescence matérielle, tandis que les données sont souvent stockées hors UE. Reprendre la main, c'est protéger nos élèves et les former à un numérique souverain.</p>
+            </div>
+            <div class="visual-block" aria-hidden="true">
+                <div class="shield">NIRD</div>
+                <p>Village résistant face au Goliath numérique</p>
+            </div>
+        </section>
+
+        <section id="nird" class="section light">
+            <div class="section-header">
+                <p class="section-kicker">Découvrir</p>
+                <h2>La démarche NIRD</h2>
+                <p>Trois piliers pour construire un numérique inclusif, responsable et durable.</p>
+            </div>
+            <div class="card-grid">
+                <article class="card">
+                    <div class="icon" aria-hidden="true">🤝</div>
+                    <h3>Inclusif</h3>
+                    <p>Lutte contre la fracture numérique, accès pour tous, reconditionnement pour les élèves non équipés, accompagnement des familles.</p>
+                </article>
+                <article class="card">
+                    <div class="icon" aria-hidden="true">🛡️</div>
+                    <h3>Responsable</h3>
+                    <p>Promotion des logiciels libres, autonomie vis-à-vis des GAFAM, souveraineté numérique et appropriation des outils par la communauté éducative.</p>
+                </article>
+                <article class="card">
+                    <div class="icon" aria-hidden="true">🌱</div>
+                    <h3>Durable</h3>
+                    <p>Sobriété numérique, réemploi de machines avec Linux, allongement de la durée de vie des équipements et réduction de l'empreinte carbone.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="parcours" class="section">
+            <div class="section-header">
+                <p class="section-kicker">Agir</p>
+                <h2>Parcours NIRD de ton établissement</h2>
+                <p>Réponds à quelques actions concrètes et observe la progression de ton niveau NIRD.</p>
+            </div>
+            <div class="gauge-container" role="group" aria-labelledby="gauge-label" aria-describedby="gauge-desc">
+                <div class="gauge-labels">
+                    <span id="gauge-label">Niveau NIRD</span>
+                    <span id="gauge-value" class="gauge-value">0%</span>
+                </div>
+                <div class="gauge" aria-hidden="true">
+                    <div class="gauge-fill" id="gauge-fill"></div>
+                </div>
+                <p id="gauge-desc" class="gauge-desc">Coche les actions réalisées pour augmenter le score et renforcer la résistance aux Big Tech.</p>
+            </div>
+            <div class="actions-list" aria-label="Actions NIRD">
+                <label class="action-item">
+                    <input type="checkbox" value="20" class="action-checkbox">
+                    Nous avons déjà reconditionné des ordinateurs sous Linux.
+                </label>
+                <label class="action-item">
+                    <input type="checkbox" value="20" class="action-checkbox">
+                    Nous utilisons au moins un service libre/auto-hébergé pour les élèves.
+                </label>
+                <label class="action-item">
+                    <input type="checkbox" value="20" class="action-checkbox">
+                    Les élèves sont sensibilisés à la sobriété numérique.
+                </label>
+                <label class="action-item">
+                    <input type="checkbox" value="20" class="action-checkbox">
+                    Une salle info fonctionne déjà entièrement sous Linux.
+                </label>
+                <label class="action-item">
+                    <input type="checkbox" value="20" class="action-checkbox">
+                    Un plan de migration progressive vers des outils libres est partagé avec l'équipe.
+                </label>
+            </div>
+            <div class="gauge-feedback" id="gauge-feedback" aria-live="polite"></div>
+        </section>
+
+        <section id="quiz" class="section light">
+            <div class="section-header">
+                <p class="section-kicker">Tester</p>
+                <h2>Mini-quiz NIRD</h2>
+                <p>Valide tes connaissances sur le numérique inclusif, responsable et durable.</p>
+            </div>
+            <div class="quiz" aria-label="Mini-quiz NIRD">
+                <div class="quiz-question" id="quiz-question"></div>
+                <div class="quiz-options" id="quiz-options"></div>
+                <div class="quiz-actions">
+                    <button class="btn" id="validate-btn">Valider cette question</button>
+                    <button class="btn secondary" id="next-btn">Question suivante</button>
+                </div>
+                <div class="quiz-progress">
+                    <span id="quiz-counter">Question 1</span>
+                    <span id="quiz-score">Score : 0</span>
+                </div>
+                <div class="quiz-feedback" id="quiz-feedback" aria-live="polite"></div>
+            </div>
+        </section>
+
+        <section id="ressources" class="section">
+            <div class="section-header">
+                <p class="section-kicker">Explorer</p>
+                <h2>Ressources & aller plus loin</h2>
+                <p>Une sélection de ressources pour approfondir et passer à l'action.</p>
+            </div>
+            <div class="resources-grid">
+                <article class="resource-card">
+                    <h3>Site officiel NIRD</h3>
+                    <p>Découvre les principes, les guides et les retours d'expérience autour de la démarche NIRD.</p>
+                    <a href="#" class="resource-link">Lien à compléter</a>
+                </article>
+                <article class="resource-card">
+                    <h3>Numérique responsable</h3>
+                    <p>Boîte à outils pour réduire l'empreinte numérique, choisir des solutions libres et durables.</p>
+                    <a href="#" class="resource-link">Lien à compléter</a>
+                </article>
+                <article class="resource-card">
+                    <h3>Exemples d'établissements engagés</h3>
+                    <p>Inspiration et bonnes pratiques d'équipes pédagogiques déjà engagées dans la résistance aux Big Tech.</p>
+                    <a href="#" class="resource-link">Lien à compléter</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Projet réalisé dans le cadre de la Nuit de l'Info 2025.</p>
+        <p>Ressources libres et publication sous licence libre (à préciser).</p>
+        <a class="back-to-top" href="#top">Remonter</a>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

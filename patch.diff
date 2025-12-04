@@ -1,0 +1,811 @@
+diff --git a/css/style.css b/css/style.css
+new file mode 100644
+index 0000000000000000000000000000000000000000..86a7b645ef7bf6f44624806045711ee4f93cf8b7
+--- /dev/null
++++ b/css/style.css
+@@ -0,0 +1,450 @@
++:root {
++    --bg: #0f172a;
++    --surface: #111827;
++    --surface-light: #162033;
++    --text: #e5e7eb;
++    --muted: #9ca3af;
++    --accent: #34d399;
++    --accent-strong: #22c55e;
++    --accent-soft: rgba(52, 211, 153, 0.15);
++    --shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
++    --radius: 16px;
++    --transition: 200ms ease;
++    font-size: 16px;
++    font-family: "Inter", "Segoe UI", Roboto, system-ui, -apple-system, sans-serif;
++}
++
++* {
++    box-sizing: border-box;
++    margin: 0;
++    padding: 0;
++}
++
++body {
++    background: var(--bg);
++    color: var(--text);
++    line-height: 1.7;
++    -webkit-font-smoothing: antialiased;
++}
++
++a {
++    color: inherit;
++    text-decoration: none;
++}
++
++a:hover {
++    color: var(--accent);
++}
++
++.hero {
++    position: relative;
++    min-height: 80vh;
++    padding: 24px clamp(1.5rem, 5vw, 4rem) 80px;
++    background: radial-gradient(circle at 20% 20%, rgba(52, 211, 153, 0.14), transparent 35%),
++        radial-gradient(circle at 80% 0%, rgba(14, 165, 233, 0.08), transparent 30%),
++        linear-gradient(135deg, var(--surface), var(--bg));
++    overflow: hidden;
++}
++
++.nav {
++    display: flex;
++    align-items: center;
++    justify-content: space-between;
++    gap: 24px;
++    position: sticky;
++    top: 0;
++    padding: 12px 18px;
++    background: rgba(17, 24, 39, 0.75);
++    backdrop-filter: blur(10px);
++    border: 1px solid rgba(255, 255, 255, 0.06);
++    border-radius: 12px;
++    box-shadow: var(--shadow);
++    z-index: 10;
++}
++
++.logo {
++    font-weight: 700;
++    letter-spacing: 0.5px;
++}
++
++.nav-links {
++    list-style: none;
++    display: flex;
++    align-items: center;
++    gap: 20px;
++}
++
++.nav-links a {
++    font-weight: 600;
++    font-size: 0.95rem;
++    padding: 8px 12px;
++    border-radius: 8px;
++    transition: background var(--transition), color var(--transition);
++}
++
++.nav-links a:hover,
++.nav-links a:focus {
++    background: var(--surface-light);
++    color: var(--accent);
++}
++
++.hero-content {
++    margin-top: 120px;
++    max-width: 720px;
++}
++
++.tagline {
++    color: var(--accent);
++    font-weight: 700;
++    letter-spacing: 1px;
++    text-transform: uppercase;
++    font-size: 0.85rem;
++}
++
++h1 {
++    font-size: clamp(2.4rem, 5vw, 3.4rem);
++    margin: 16px 0;
++    line-height: 1.2;
++}
++
++.subtitle {
++    color: var(--muted);
++    max-width: 640px;
++    margin-bottom: 28px;
++}
++
++.btn {
++    display: inline-block;
++    padding: 12px 20px;
++    border-radius: 12px;
++    border: 1px solid transparent;
++    background: var(--surface-light);
++    color: var(--text);
++    font-weight: 700;
++    cursor: pointer;
++    transition: transform var(--transition), box-shadow var(--transition), background var(--transition), border-color var(--transition);
++    box-shadow: var(--shadow);
++}
++
++.btn:hover,
++.btn:focus {
++    transform: translateY(-2px);
++    background: var(--surface);
++    border-color: rgba(255, 255, 255, 0.08);
++}
++
++.btn.primary {
++    background: linear-gradient(120deg, var(--accent), var(--accent-strong));
++    color: #0b1220;
++    box-shadow: 0 10px 30px rgba(52, 211, 153, 0.3);
++}
++
++.btn.secondary {
++    background: transparent;
++    border: 1px solid rgba(255, 255, 255, 0.12);
++}
++
++.section {
++    padding: 100px clamp(1.5rem, 5vw, 4rem);
++    background: var(--surface);
++}
++
++.section.light {
++    background: var(--surface-light);
++}
++
++.section-header {
++    max-width: 720px;
++    margin: 0 auto 48px;
++    text-align: center;
++}
++
++.section-kicker {
++    color: var(--accent);
++    text-transform: uppercase;
++    letter-spacing: 1px;
++    font-weight: 700;
++    font-size: 0.9rem;
++}
++
++.two-column {
++    display: grid;
++    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
++    gap: 32px;
++    align-items: center;
++}
++
++.two-column .content h2 {
++    margin-bottom: 12px;
++}
++
++.visual-block {
++    background: linear-gradient(145deg, var(--surface-light), rgba(255, 255, 255, 0.04));
++    border: 1px solid rgba(255, 255, 255, 0.08);
++    border-radius: var(--radius);
++    padding: 32px;
++    text-align: center;
++    box-shadow: var(--shadow);
++}
++
++.shield {
++    display: inline-flex;
++    align-items: center;
++    justify-content: center;
++    width: 120px;
++    height: 120px;
++    border-radius: 30% 70% 60% 40%;
++    background: var(--accent-soft);
++    border: 2px solid var(--accent);
++    color: var(--accent);
++    font-weight: 800;
++    font-size: 1.4rem;
++    margin-bottom: 12px;
++}
++
++.card-grid {
++    display: grid;
++    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
++    gap: 24px;
++}
++
++.card {
++    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
++    border-radius: var(--radius);
++    padding: 24px;
++    border: 1px solid rgba(255, 255, 255, 0.08);
++    box-shadow: var(--shadow);
++    transition: transform var(--transition), border-color var(--transition);
++}
++
++.card:hover,
++.card:focus-within {
++    transform: translateY(-4px);
++    border-color: var(--accent);
++}
++
++.card h3 {
++    margin: 12px 0;
++    font-size: 1.3rem;
++}
++
++.card p {
++    color: var(--muted);
++}
++
++.icon {
++    width: 48px;
++    height: 48px;
++    display: grid;
++    place-items: center;
++    border-radius: 14px;
++    background: var(--accent-soft);
++    font-size: 1.4rem;
++}
++
++.gauge-container {
++    max-width: 760px;
++    margin: 0 auto 32px;
++    background: rgba(255, 255, 255, 0.03);
++    padding: 24px;
++    border-radius: var(--radius);
++    border: 1px solid rgba(255, 255, 255, 0.06);
++    box-shadow: var(--shadow);
++}
++
++.gauge-labels {
++    display: flex;
++    justify-content: space-between;
++    font-weight: 700;
++    margin-bottom: 8px;
++}
++
++.gauge {
++    width: 100%;
++    height: 18px;
++    background: rgba(255, 255, 255, 0.08);
++    border-radius: 999px;
++    overflow: hidden;
++}
++
++.gauge-fill {
++    height: 100%;
++    width: 0%;
++    background: linear-gradient(90deg, var(--accent), #67e8f9);
++    transition: width 300ms ease;
++}
++
++.gauge-desc {
++    color: var(--muted);
++    margin-top: 10px;
++}
++
++.actions-list {
++    display: grid;
++    gap: 12px;
++    max-width: 760px;
++    margin: 0 auto;
++}
++
++.action-item {
++    display: grid;
++    grid-template-columns: auto 1fr;
++    align-items: start;
++    gap: 10px;
++    background: rgba(255, 255, 255, 0.02);
++    border-radius: 12px;
++    padding: 14px 16px;
++    border: 1px solid rgba(255, 255, 255, 0.06);
++}
++
++.gauge-feedback {
++    max-width: 760px;
++    margin: 16px auto 0;
++    font-weight: 700;
++    color: var(--accent);
++}
++
++.quiz {
++    max-width: 780px;
++    margin: 0 auto;
++    background: rgba(255, 255, 255, 0.03);
++    padding: 24px;
++    border-radius: var(--radius);
++    border: 1px solid rgba(255, 255, 255, 0.08);
++    box-shadow: var(--shadow);
++}
++
++.quiz-question {
++    font-size: 1.2rem;
++    font-weight: 700;
++    margin-bottom: 16px;
++}
++
++.quiz-options {
++    display: grid;
++    gap: 12px;
++    margin-bottom: 16px;
++}
++
++.quiz-option {
++    background: rgba(255, 255, 255, 0.02);
++    border: 1px solid rgba(255, 255, 255, 0.06);
++    padding: 12px;
++    border-radius: 12px;
++    cursor: pointer;
++    transition: border-color var(--transition), transform var(--transition);
++}
++
++.quiz-option:hover,
++.quiz-option:focus-within {
++    border-color: var(--accent);
++    transform: translateY(-2px);
++}
++
++.quiz-option input {
++    margin-right: 10px;
++}
++
++.quiz-actions {
++    display: flex;
++    gap: 12px;
++    margin-bottom: 12px;
++}
++
++.quiz-progress {
++    display: flex;
++    justify-content: space-between;
++    color: var(--muted);
++    margin-bottom: 8px;
++}
++
++.quiz-feedback {
++    min-height: 24px;
++    font-weight: 700;
++    color: var(--accent);
++}
++
++.resources-grid {
++    display: grid;
++    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
++    gap: 20px;
++}
++
++.resource-card {
++    background: rgba(255, 255, 255, 0.02);
++    border: 1px solid rgba(255, 255, 255, 0.06);
++    border-radius: var(--radius);
++    padding: 20px;
++    transition: transform var(--transition), border-color var(--transition);
++}
++
++.resource-card:hover,
++.resource-card:focus-within {
++    transform: translateY(-3px);
++    border-color: var(--accent);
++}
++
++.resource-card h3 {
++    margin-bottom: 10px;
++}
++
++.resource-card p {
++    color: var(--muted);
++    margin-bottom: 12px;
++}
++
++.resource-link {
++    color: var(--accent);
++    font-weight: 700;
++}
++
++.footer {
++    text-align: center;
++    padding: 40px 16px;
++    background: var(--surface-light);
++    color: var(--muted);
++}
++
++.back-to-top {
++    display: inline-block;
++    margin-top: 8px;
++    color: var(--accent);
++}
++
++@media (max-width: 768px) {
++    .nav {
++        flex-direction: column;
++        align-items: flex-start;
++        position: static;
++    }
++
++    .nav-links {
++        flex-wrap: wrap;
++    }
++
++    .hero {
++        padding-top: 32px;
++    }
++
++    .hero-content {
++        margin-top: 64px;
++    }
++
++    .quiz-actions {
++        flex-direction: column;
++    }
++}
++
++@media (max-width: 480px) {
++    :root {
++        font-size: 15px;
++    }
++
++    .nav-links {
++        gap: 12px;
++    }
++
++    .nav-links a {
++        padding: 6px 10px;
++    }
++}
+diff --git a/index.html b/index.html
+new file mode 100644
+index 0000000000000000000000000000000000000000..60db4e04461746abf1d71d520e8904cba84e86a4
+--- /dev/null
++++ b/index.html
+@@ -0,0 +1,162 @@
++<!DOCTYPE html>
++<html lang="fr">
++<head>
++    <meta charset="UTF-8">
++    <meta name="viewport" content="width=device-width, initial-scale=1.0">
++    <title>Village NIRD – Résister aux Big Tech à l'école</title>
++    <link rel="stylesheet" href="css/style.css">
++</head>
++<body>
++    <header class="hero" id="top">
++        <nav class="nav" aria-label="Navigation principale">
++            <div class="logo">Village NIRD</div>
++            <ul class="nav-links">
++                <li><a href="#contexte">Contexte</a></li>
++                <li><a href="#nird">Démarche NIRD</a></li>
++                <li><a href="#parcours">Parcours</a></li>
++                <li><a href="#quiz">Mini-quiz</a></li>
++                <li><a href="#ressources">Ressources</a></li>
++            </ul>
++        </nav>
++        <div class="hero-content">
++            <p class="tagline">Nuit de l'Info 2025</p>
++            <h1>Village NIRD – Résister aux Big Tech à l'école</h1>
++            <p class="subtitle">Un parcours interactif pour aider ton établissement scolaire à rejoindre un Numérique Inclusif, Responsable et Durable.</p>
++            <a class="btn primary" href="#contexte">Commencer le parcours</a>
++        </div>
++    </header>
++
++    <main>
++        <section id="contexte" class="section two-column">
++            <div class="content">
++                <h2>Contexte : pourquoi résister aux Big Tech ?</h2>
++                <p>La dépendance aux GAFAM enferme les établissements dans des écosystèmes fermés, rend les données vulnérables et pèse lourd sur les budgets. Les licences propriétaires entretiennent l'obsolescence matérielle, tandis que les données sont souvent stockées hors UE. Reprendre la main, c'est protéger nos élèves et les former à un numérique souverain.</p>
++            </div>
++            <div class="visual-block" aria-hidden="true">
++                <div class="shield">NIRD</div>
++                <p>Village résistant face au Goliath numérique</p>
++            </div>
++        </section>
++
++        <section id="nird" class="section light">
++            <div class="section-header">
++                <p class="section-kicker">Découvrir</p>
++                <h2>La démarche NIRD</h2>
++                <p>Trois piliers pour construire un numérique inclusif, responsable et durable.</p>
++            </div>
++            <div class="card-grid">
++                <article class="card">
++                    <div class="icon" aria-hidden="true">🤝</div>
++                    <h3>Inclusif</h3>
++                    <p>Lutte contre la fracture numérique, accès pour tous, reconditionnement pour les élèves non équipés, accompagnement des familles.</p>
++                </article>
++                <article class="card">
++                    <div class="icon" aria-hidden="true">🛡️</div>
++                    <h3>Responsable</h3>
++                    <p>Promotion des logiciels libres, autonomie vis-à-vis des GAFAM, souveraineté numérique et appropriation des outils par la communauté éducative.</p>
++                </article>
++                <article class="card">
++                    <div class="icon" aria-hidden="true">🌱</div>
++                    <h3>Durable</h3>
++                    <p>Sobriété numérique, réemploi de machines avec Linux, allongement de la durée de vie des équipements et réduction de l'empreinte carbone.</p>
++                </article>
++            </div>
++        </section>
++
++        <section id="parcours" class="section">
++            <div class="section-header">
++                <p class="section-kicker">Agir</p>
++                <h2>Parcours NIRD de ton établissement</h2>
++                <p>Réponds à quelques actions concrètes et observe la progression de ton niveau NIRD.</p>
++            </div>
++            <div class="gauge-container" role="group" aria-labelledby="gauge-label" aria-describedby="gauge-desc">
++                <div class="gauge-labels">
++                    <span id="gauge-label">Niveau NIRD</span>
++                    <span id="gauge-value" class="gauge-value">0%</span>
++                </div>
++                <div class="gauge" aria-hidden="true">
++                    <div class="gauge-fill" id="gauge-fill"></div>
++                </div>
++                <p id="gauge-desc" class="gauge-desc">Coche les actions réalisées pour augmenter le score et renforcer la résistance aux Big Tech.</p>
++            </div>
++            <div class="actions-list" aria-label="Actions NIRD">
++                <label class="action-item">
++                    <input type="checkbox" value="20" class="action-checkbox">
++                    Nous avons déjà reconditionné des ordinateurs sous Linux.
++                </label>
++                <label class="action-item">
++                    <input type="checkbox" value="20" class="action-checkbox">
++                    Nous utilisons au moins un service libre/auto-hébergé pour les élèves.
++                </label>
++                <label class="action-item">
++                    <input type="checkbox" value="20" class="action-checkbox">
++                    Les élèves sont sensibilisés à la sobriété numérique.
++                </label>
++                <label class="action-item">
++                    <input type="checkbox" value="20" class="action-checkbox">
++                    Une salle info fonctionne déjà entièrement sous Linux.
++                </label>
++                <label class="action-item">
++                    <input type="checkbox" value="20" class="action-checkbox">
++                    Un plan de migration progressive vers des outils libres est partagé avec l'équipe.
++                </label>
++            </div>
++            <div class="gauge-feedback" id="gauge-feedback" aria-live="polite"></div>
++        </section>
++
++        <section id="quiz" class="section light">
++            <div class="section-header">
++                <p class="section-kicker">Tester</p>
++                <h2>Mini-quiz NIRD</h2>
++                <p>Valide tes connaissances sur le numérique inclusif, responsable et durable.</p>
++            </div>
++            <div class="quiz" aria-label="Mini-quiz NIRD">
++                <div class="quiz-question" id="quiz-question"></div>
++                <div class="quiz-options" id="quiz-options"></div>
++                <div class="quiz-actions">
++                    <button class="btn" id="validate-btn">Valider cette question</button>
++                    <button class="btn secondary" id="next-btn">Question suivante</button>
++                </div>
++                <div class="quiz-progress">
++                    <span id="quiz-counter">Question 1</span>
++                    <span id="quiz-score">Score : 0</span>
++                </div>
++                <div class="quiz-feedback" id="quiz-feedback" aria-live="polite"></div>
++            </div>
++        </section>
++
++        <section id="ressources" class="section">
++            <div class="section-header">
++                <p class="section-kicker">Explorer</p>
++                <h2>Ressources & aller plus loin</h2>
++                <p>Une sélection de ressources pour approfondir et passer à l'action.</p>
++            </div>
++            <div class="resources-grid">
++                <article class="resource-card">
++                    <h3>Site officiel NIRD</h3>
++                    <p>Découvre les principes, les guides et les retours d'expérience autour de la démarche NIRD.</p>
++                    <a href="#" class="resource-link">Lien à compléter</a>
++                </article>
++                <article class="resource-card">
++                    <h3>Numérique responsable</h3>
++                    <p>Boîte à outils pour réduire l'empreinte numérique, choisir des solutions libres et durables.</p>
++                    <a href="#" class="resource-link">Lien à compléter</a>
++                </article>
++                <article class="resource-card">
++                    <h3>Exemples d'établissements engagés</h3>
++                    <p>Inspiration et bonnes pratiques d'équipes pédagogiques déjà engagées dans la résistance aux Big Tech.</p>
++                    <a href="#" class="resource-link">Lien à compléter</a>
++                </article>
++            </div>
++        </section>
++    </main>
++
++    <footer class="footer">
++        <p>Projet réalisé dans le cadre de la Nuit de l'Info 2025.</p>
++        <p>Ressources libres et publication sous licence libre (à préciser).</p>
++        <a class="back-to-top" href="#top">Remonter</a>
++    </footer>
++
++    <script src="js/main.js"></script>
++</body>
++</html>
+diff --git a/js/main.js b/js/main.js
+new file mode 100644
+index 0000000000000000000000000000000000000000..cbecbe7e4beaf0ecc922b8eb5923614ea18f0e79
+--- /dev/null
++++ b/js/main.js
+@@ -0,0 +1,181 @@
++(() => {
++    // ---------------------------
++    // Jauge NIRD
++    // ---------------------------
++    const gaugeFill = document.getElementById('gauge-fill');
++    const gaugeValue = document.getElementById('gauge-value');
++    const gaugeFeedback = document.getElementById('gauge-feedback');
++    const actionCheckboxes = Array.from(document.querySelectorAll('.action-checkbox'));
++
++    const feedbackLevels = [
++        { max: 20, text: "Un premier pas vers la résistance numérique. Continue !" },
++        { max: 60, text: "Belle dynamique ! Le village NIRD s'organise." },
++        { max: 100, text: "Excellent : l'établissement devient un modèle de résilience." }
++    ];
++
++    function updateGauge() {
++        const total = actionCheckboxes.reduce((score, checkbox) => {
++            return checkbox.checked ? score + Number(checkbox.value) : score;
++        }, 0);
++
++        const normalized = Math.min(total, 100);
++        gaugeFill.style.width = `${normalized}%`;
++        gaugeValue.textContent = `${normalized}%`;
++
++        const feedback = feedbackLevels.find(level => normalized <= level.max);
++        gaugeFeedback.textContent = feedback ? feedback.text : '';
++    }
++
++    actionCheckboxes.forEach(checkbox => {
++        checkbox.addEventListener('change', updateGauge);
++    });
++
++    updateGauge();
++
++    // ---------------------------
++    // Mini-quiz NIRD
++    // ---------------------------
++    const questions = [
++        {
++            text: "Que signifie la démarche NIRD dans un établissement scolaire ?",
++            options: [
++                "Adopter uniquement des solutions propriétaires pour assurer la compatibilité.",
++                "Construire un numérique inclusif, responsable et durable pour toute la communauté éducative.",
++                "Remplacer tout le matériel tous les deux ans pour rester à la pointe."
++            ],
++            correctIndex: 1
++        },
++        {
++            text: "Pourquoi les logiciels libres sont-ils essentiels dans la NIRD ?",
++            options: [
++                "Ils permettent d'adapter les outils, favorisent la souveraineté et réduisent les coûts de licence.",
++                "Ils sont toujours plus lents que les solutions propriétaires.",
++                "Ils obligent à stocker les données hors de l'UE."
++            ],
++            correctIndex: 0
++        },
++        {
++            text: "Quelle action lutte contre la fracture numérique ?",
++            options: [
++                "Imposer un appareil récent à chaque élève.",
++                "Reconditionner et prêter des ordinateurs sous Linux aux élèves non équipés.",
++                "Ne proposer que des services cloud payants." 
++            ],
++            correctIndex: 1
++        },
++        {
++            text: "Comment encourager la sobriété numérique ?",
++            options: [
++                "Multiplier les envois de pièces jointes lourdes.",
++                "Sensibiliser les élèves à la réduction des consommations et au réemploi du matériel.",
++                "Installer des applications en doublon pour chaque usage."
++            ],
++            correctIndex: 1
++        }
++        // TODO: compléter les textes des questions
++    ];
++
++    const quizQuestion = document.getElementById('quiz-question');
++    const quizOptions = document.getElementById('quiz-options');
++    const validateBtn = document.getElementById('validate-btn');
++    const nextBtn = document.getElementById('next-btn');
++    const quizCounter = document.getElementById('quiz-counter');
++    const quizScore = document.getElementById('quiz-score');
++    const quizFeedback = document.getElementById('quiz-feedback');
++
++    let currentQuestion = 0;
++    let score = 0;
++    let answered = false;
++
++    function renderQuestion() {
++        const question = questions[currentQuestion];
++        quizQuestion.textContent = question.text;
++        quizOptions.innerHTML = '';
++
++        question.options.forEach((option, index) => {
++            const optionLabel = document.createElement('label');
++            optionLabel.className = 'quiz-option';
++
++            const input = document.createElement('input');
++            input.type = 'radio';
++            input.name = 'quiz-option';
++            input.value = index;
++            input.setAttribute('aria-label', option);
++
++            optionLabel.appendChild(input);
++            optionLabel.append(option);
++            quizOptions.appendChild(optionLabel);
++        });
++
++        quizCounter.textContent = `Question ${currentQuestion + 1} / ${questions.length}`;
++        quizFeedback.textContent = '';
++        answered = false;
++    }
++
++    function getSelectedOption() {
++        const selected = quizOptions.querySelector('input[name="quiz-option"]:checked');
++        return selected ? Number(selected.value) : null;
++    }
++
++    function validateAnswer() {
++        if (answered) return;
++        const selectedIndex = getSelectedOption();
++        if (selectedIndex === null) {
++            quizFeedback.textContent = "Choisis une réponse avant de valider.";
++            return;
++        }
++
++        const isCorrect = selectedIndex === questions[currentQuestion].correctIndex;
++        if (isCorrect) {
++            score += 1;
++            quizFeedback.textContent = "Bonne réponse !";
++        } else {
++            quizFeedback.textContent = "Ce n'est pas tout à fait ça, continue d'explorer la NIRD.";
++        }
++
++        quizScore.textContent = `Score : ${score}`;
++        answered = true;
++    }
++
++    function showFinalMessage() {
++        const ratio = score / questions.length;
++        let message = '';
++
++        if (ratio === 1) {
++            message = "Parfait ! Tu es un véritable artisan du numérique souverain.";
++        } else if (ratio >= 0.66) {
++            message = "Très bien ! Encore quelques actions pour atteindre l'excellence NIRD.";
++        } else if (ratio >= 0.33) {
++            message = "Pas mal ! Continue à découvrir les leviers pour résister aux Big Tech.";
++        } else {
++            message = "Le voyage commence : replonge dans les piliers NIRD et essaie à nouveau.";
++        }
++
++        quizQuestion.textContent = "Fin du quiz";
++        quizOptions.innerHTML = '';
++        quizFeedback.textContent = message;
++        validateBtn.disabled = true;
++        nextBtn.disabled = true;
++    }
++
++    function nextQuestion() {
++        if (!answered) {
++            quizFeedback.textContent = "Valide d'abord ta réponse.";
++            return;
++        }
++
++        currentQuestion += 1;
++        if (currentQuestion >= questions.length) {
++            showFinalMessage();
++            return;
++        }
++
++        quizScore.textContent = `Score : ${score}`;
++        renderQuestion();
++    }
++
++    validateBtn.addEventListener('click', validateAnswer);
++    nextBtn.addEventListener('click', nextQuestion);
++
++    renderQuestion();
++})();
