@@ -151,12 +151,60 @@
         </section>
     </main>
 
+    <!-- DÉMONSTRATION : Preuve que JavaScript fonctionne sur GitHub Pages -->
+    <section id="demo-js" class="section light" style="background: #2a2a2a; border-top: 3px solid #4CAF50; padding: 2rem; text-align: center;">
+        <h2 style="color: #4CAF50; margin-bottom: 1rem;">✅ Preuve que JavaScript fonctionne sur GitHub Pages</h2>
+        <p style="margin-bottom: 1.5rem; color: #ccc;">Clique sur le bouton ci-dessous pour voir le JavaScript en action :</p>
+        <button id="demo-btn" style="background: #4CAF50; color: white; border: none; padding: 1rem 2rem; font-size: 1.1rem; border-radius: 5px; cursor: pointer; font-weight: bold;">
+            Clique-moi ! 🚀
+        </button>
+        <div id="demo-result" style="margin-top: 1.5rem; font-size: 1.2rem; color: #4CAF50; font-weight: bold; min-height: 2rem;"></div>
+        <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #888;">
+            <strong>Explication technique :</strong> GitHub Pages sert les fichiers statiques (HTML, CSS, JS) tels quels. 
+            Le JavaScript s'exécute côté client dans le navigateur, exactement comme sur un serveur web classique.
+        </p>
+    </section>
+
     <footer class="footer">
         <p>Projet réalisé dans le cadre de la Nuit de l'Info 2025.</p>
         <p>Ressources libres et publication sous licence libre (à préciser).</p>
         <a class="back-to-top" href="#top">Remonter</a>
     </footer>
 
+    <!-- Script de démonstration JavaScript pour GitHub Pages -->
+    <script>
+        // DÉMONSTRATION SIMPLE : Preuve que JavaScript fonctionne sur GitHub Pages
+        // Ce script s'exécute automatiquement quand la page est chargée
+        (function() {
+            const demoBtn = document.getElementById('demo-btn');
+            const demoResult = document.getElementById('demo-result');
+            let clickCount = 0;
+            
+            // Fonction qui s'exécute au clic - preuve que le JS fonctionne
+            demoBtn.addEventListener('click', function() {
+                clickCount++;
+                const messages = [
+                    '🎉 JavaScript fonctionne parfaitement sur GitHub Pages !',
+                    '✅ Le JS s\'exécute côté client dans le navigateur.',
+                    '🚀 GitHub Pages sert les fichiers .js comme n\'importe quel serveur web.',
+                    '💡 Pas besoin de backend : le JavaScript vanilla fonctionne partout !',
+                    '🔥 Cette page utilise déjà du JS pour la jauge NIRD et le quiz !'
+                ];
+                const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+                demoResult.innerHTML = `${randomMessage}<br><small style="color: #888;">Clics : ${clickCount}</small>`;
+                
+                // Animation visuelle pour renforcer la preuve
+                demoBtn.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    demoBtn.style.transform = 'scale(1)';
+                }, 100);
+            });
+            
+            // Message initial au chargement de la page
+            demoResult.innerHTML = '👆 Clique sur le bouton pour voir le JavaScript en action !';
+        })();
+    </script>
+    
     <script src="js/main.js"></script>
 </body>
 </html>
