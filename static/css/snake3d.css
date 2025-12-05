@@ -1,0 +1,331 @@
+/* Overlay pour le Snake 3D */
+.snake3d-hidden {
+    display: none;
+}
+
+.snake3d-visible {
+    display: flex !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease-in;
+}
+
+.snake3d-container {
+    position: relative;
+    width: 90%;
+    max-width: 1080px;
+    height: 90%;
+    max-height: 800px;
+    background: var(--surface);
+    border-radius: var(--radius);
+    border: 2px solid var(--accent);
+    box-shadow: 0 20px 60px rgba(52, 211, 153, 0.3);
+    overflow: hidden;
+}
+
+.snake3d-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--accent);
+    color: #0b1220;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10000;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.snake3d-close-btn:hover {
+    transform: scale(1.1);
+    background: var(--accent-strong);
+}
+
+.snake3d-restart-btn {
+    position: absolute;
+    top: 15px;
+    right: 65px;
+    background: var(--warning);
+    color: #0b1220;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10000;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.snake3d-restart-btn:hover {
+    transform: scale(1.05);
+    background: #f97316;
+}
+
+#snake3d-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.canvas-widget {
+    width: 100%;
+    height: 100%;
+    background: DimGray;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Indice d'activation */
+#snake3d-hint {
+    font-family: "Inter", "Segoe UI", Roboto, system-ui, sans-serif;
+}
+
+/* Instructions de contrôle pour le Snake */
+.snake3d-instructions {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10001;
+    background: linear-gradient(145deg, rgba(17, 24, 39, 0.95), rgba(15, 23, 42, 0.95));
+    border: 2px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 20px 30px;
+    box-shadow: 0 10px 40px rgba(52, 211, 153, 0.4);
+    animation: slideDown 0.4s ease-out;
+    max-width: 400px;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+
+.snake3d-instructions-content h3 {
+    color: var(--accent);
+    margin: 0 0 12px 0;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.snake3d-instructions-content p {
+    color: var(--text);
+    margin: 8px 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.snake3d-instructions-content p strong {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.snake3d-instructions-close {
+    margin-top: 16px;
+    width: 100%;
+    padding: 10px 20px;
+    background: var(--accent);
+    color: #0b1220;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    font-size: 0.95rem;
+}
+
+.snake3d-instructions-close:hover {
+    background: var(--accent-strong);
+    transform: translateY(-2px);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Animation des flèches Konami Code */
+.konami-arrows-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9998;
+    overflow: hidden;
+}
+
+.konami-arrow {
+    position: absolute;
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--accent);
+    text-shadow: 0 0 20px rgba(52, 211, 153, 0.8), 0 0 40px rgba(52, 211, 153, 0.5);
+    opacity: 0;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    /* S'assurer qu'il n'y a qu'un seul élément à la fois */
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+
+.konami-arrow.up {
+    animation-name: arrowFlowUp;
+}
+
+.konami-arrow.down {
+    animation-name: arrowFlowDown;
+}
+
+.konami-arrow.left {
+    animation-name: arrowFlowLeft;
+}
+
+.konami-arrow.right {
+    animation-name: arrowFlowRight;
+}
+
+@keyframes arrowFlowUp {
+    0% {
+        bottom: -80px;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    50% {
+        bottom: 50%;
+        opacity: 1;
+    }
+    85% {
+        opacity: 1;
+    }
+    100% {
+        bottom: 50%;
+        opacity: 0;
+        transform: translateX(-50%) scale(0.8);
+    }
+}
+
+@keyframes arrowFlowDown {
+    0% {
+        top: -80px;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    50% {
+        top: 50%;
+        opacity: 1;
+    }
+    85% {
+        opacity: 1;
+    }
+    100% {
+        top: 50%;
+        opacity: 0;
+        transform: translateX(-50%) scale(0.8);
+    }
+}
+
+@keyframes arrowFlowLeft {
+    0% {
+        right: -80px;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    50% {
+        right: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 1;
+    }
+    85% {
+        opacity: 1;
+    }
+    100% {
+        right: 50%;
+        top: 50%;
+        opacity: 0;
+        transform: translateY(-50%) scale(0.8);
+    }
+}
+
+@keyframes arrowFlowRight {
+    0% {
+        left: -80px;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    50% {
+        left: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 1;
+    }
+    85% {
+        opacity: 1;
+    }
+    100% {
+        left: 50%;
+        top: 50%;
+        opacity: 0;
+        transform: translateY(-50%) scale(0.8);
+    }
+}
+
+/* Animation pour les flèches multiples en séquence */
+.konami-arrow-sequence {
+    animation-delay: calc(var(--arrow-index) * 0.2s);
+}
+
+/* Styles pour le canvas du jeu */
+#snake3d-canvas canvas {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0;
+}
+

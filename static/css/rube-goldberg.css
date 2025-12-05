@@ -1,0 +1,269 @@
+/* Styles pour la Machine de Rube Goldberg */
+
+.rube-goldberg-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: var(--surface);
+    border-radius: var(--radius);
+    border: 2px solid var(--accent);
+}
+
+.rube-goldberg-input {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+#rube-text-input {
+    flex: 1;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 2px solid var(--accent);
+    border-radius: var(--radius);
+    background: var(--bg);
+    color: var(--text);
+    font-family: inherit;
+}
+
+#rube-text-input:focus {
+    outline: none;
+    border-color: var(--accent-strong);
+    box-shadow: 0 0 10px rgba(52, 211, 153, 0.3);
+}
+
+.rube-btn {
+    padding: 1rem 2rem;
+    background: var(--accent);
+    color: var(--bg);
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.rube-btn:hover {
+    background: var(--accent-strong);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(52, 211, 153, 0.4);
+}
+
+.rube-btn:active {
+    transform: translateY(0);
+}
+
+.rube-loading {
+    text-align: center;
+    padding: 2rem;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(52, 211, 153, 0.2);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.rube-results {
+    margin-top: 2rem;
+}
+
+.rube-step {
+    background: var(--bg);
+    border: 2px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    animation: slideIn 0.5s ease-out backwards;
+    transition: all 0.3s;
+}
+
+.rube-step:hover {
+    border-color: var(--accent-strong);
+    box-shadow: 0 4px 12px rgba(52, 211, 153, 0.2);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.rube-step-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--accent);
+}
+
+.rube-step-number {
+    background: var(--accent);
+    color: var(--bg);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.rube-step-header h4 {
+    margin: 0;
+    color: var(--accent);
+    font-size: 1.2rem;
+}
+
+.rube-step-content {
+    color: var(--text);
+}
+
+.rube-step-result {
+    background: var(--surface);
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    word-break: break-all;
+    border-left: 4px solid var(--accent);
+}
+
+.rube-step-stats {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: rgba(52, 211, 153, 0.1);
+    border-radius: 8px;
+}
+
+.rube-step-stats p {
+    margin: 0.5rem 0;
+    font-family: 'Courier New', monospace;
+}
+
+.rube-colors {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+    padding: 1rem;
+    background: var(--surface);
+    border-radius: 8px;
+}
+
+.rube-color {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    border: 2px solid var(--text);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.rube-sentiment {
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid;
+}
+
+.rube-sentiment.positive {
+    background: rgba(34, 197, 94, 0.1);
+    border-color: #22c55e;
+}
+
+.rube-sentiment.neutral {
+    background: rgba(251, 191, 36, 0.1);
+    border-color: #fbbf24;
+}
+
+.rube-sentiment.negative {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: #ef4444;
+}
+
+.rube-haiku {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--surface);
+    border-radius: 8px;
+    font-style: italic;
+    text-align: center;
+    line-height: 1.8;
+    color: var(--text);
+}
+
+.rube-sentiment-ia {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: rgba(139, 92, 246, 0.1);
+    border-radius: 8px;
+    border-left: 4px solid #8b5cf6;
+}
+
+.rube-final-result {
+    margin-top: 2rem;
+    padding: 2rem;
+    border-radius: var(--radius);
+}
+
+.rube-final-message {
+    padding: 2rem;
+    border-radius: var(--radius);
+    text-align: center;
+    border: 3px solid;
+}
+
+.rube-final-message.success {
+    background: rgba(34, 197, 94, 0.1);
+    border-color: #22c55e;
+    color: #22c55e;
+}
+
+.rube-final-message.failure {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: #ef4444;
+    color: #ef4444;
+}
+
+.rube-final-message.error {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: #ef4444;
+    color: #ef4444;
+}
+
+.rube-final-message h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+.rube-final-message p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 1rem 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .rube-goldberg-input {
+        flex-direction: column;
+    }
+    
+    .rube-btn {
+        width: 100%;
+    }
+}
+
