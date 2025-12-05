@@ -1,56 +1,72 @@
 <!DOCTYPE html>
+<!-- 
+    💡 Indice : Cliquez sur les trois piliers NIRD (Inclusif, Responsable, Durable) pour découvrir un secret caché...
+-->
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Village NIRD – Résister aux Big Tech à l'école</title>
-    <link rel="stylesheet" href="css/style.css">
+<!--    <link rel="stylesheet" href="css/style.css">-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/snake3d.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/clock.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/rube-goldberg.css') }}">
 </head>
 <body>
     <header class="hero" id="top">
         <nav class="nav" aria-label="Navigation principale">
-            <div class="logo">Village NIRD</div>
+            <div class="nav-brand">
+                <div class="logo">Village NIRD</div>
+                <div class="logo-images">
+                    <img src="{{ url_for('static', filename='assets/logos/logo_catho_lille.png') }}" alt="Logo Catho Lille" class="logo-img">
+                    <img src="{{ url_for('static', filename='assets/logos/logo_nuit_de_linfo.png') }}" alt="Logo Nuit de l'Info" class="logo-img">
+                </div>
+            </div>
             <ul class="nav-links">
                 <li><a href="#contexte">Contexte</a></li>
                 <li><a href="#nird">Démarche NIRD</a></li>
                 <li><a href="#jalons">Jalons</a></li>
                 <li><a href="#parcours">Parcours</a></li>
                 <li><a href="#quiz">Mini-quiz</a></li>
+                <li><a href="#rube-goldberg">Machine Rube</a></li>
                 <li><a href="#ressources">Ressources</a></li>
             </ul>
         </nav>
         <div class="hero-content">
             <p class="tagline">Nuit de l'Info 2025</p>
-            <h1>Village NIRD – Résister aux Big Tech à l'école</h1>
+            <h1 class="hero-title">VILLAGE NIRD</h1>
+            <h2 class="hero-subtitle">Résister aux Big Tech à l'école</h2>
             <p class="subtitle">Un parcours interactif pour aider ton établissement scolaire à rejoindre un Numérique Inclusif,
 Responsable et Durable.</p>
             <div class="hero-actions">
                 <a class="btn primary" href="#parcours">🎯 Commencer l'auto-évaluation</a>
                 <a class="btn secondary" href="#ressources">📚 Accéder aux ressources</a>
             </div>
+            
+            <!-- Statistiques clés remontées dans le hero -->
+            <section class="hero-stats" aria-label="Chiffres clés NIRD">
+                <article class="hero-stat-card stat-inclusive">
+                    <p class="stat-number">75%</p>
+                    <p class="stat-label">de l'impact numérique est lié à la fabrication : allonger la durée de vie est vital.</p>
+                </article>
+                <article class="hero-stat-card stat-responsable">
+                    <p class="stat-number">18</p>
+                    <p class="stat-label">établissements pilotes expérimentent la démarche NIRD en 2025/2026.</p>
+                </article>
+                <article class="hero-stat-card stat-durable">
+                    <p class="stat-number">2025</p>
+                    <p class="stat-label">fin du support Windows 10 : des millions de PC à sauver par le reconditionnement Linux.</p>
+                </article>
+                <article class="hero-stat-card stat-impact">
+                    <p class="stat-number">50%</p>
+                    <p class="stat-label">objectif de réemploi fixé par la loi AGEC dès 2025 : la NIRD est un levier concret.</p>
+                </article>
+            </section>
         </div>
     </header>
 
     <main>
-        <section class="section light stats" aria-label="Chiffres clés NIRD">
-            <article class="stat-card">
-                <p class="stat-number">75%</p>
-                <p class="stat-label">de l'impact numérique est lié à la fabrication : allonger la durée de vie est vital.</p>
-            </article>
-            <article class="stat-card">
-                <p class="stat-number">18</p>
-                <p class="stat-label">établissements pilotes expérimentent la démarche NIRD en 2025/2026.</p>
-            </article>
-            <article class="stat-card">
-                <p class="stat-number">2025</p>
-                <p class="stat-label">fin du support Windows 10 : des millions de PC à sauver par le reconditionnement Linux.</p>
-            </article>
-            <article class="stat-card">
-                <p class="stat-number">50%</p>
-                <p class="stat-label">objectif de réemploi fixé par la loi AGEC dès 2025 : la NIRD est un levier concret.</p>
-            </article>
-        </section>
-
         <section id="contexte" class="section two-column">
             <div class="content">
                 <h2>Contexte : pourquoi résister aux Big Tech ?</h2>
@@ -72,22 +88,24 @@ planète et pour la souveraineté numérique des élèves.</p>
                 <p>Trois piliers pour construire un numérique inclusif, responsable et durable.</p>
             </div>
             <div class="card-grid">
-                <article class="card">
+                <article class="card card-inclusive">
                     <div class="icon" aria-hidden="true">🤝</div>
                     <h3>Inclusif</h3>
                     <p>Lutte contre la fracture numérique, accès pour tous, reconditionnement pour les élèves non équipés, accompagnement des familles.</p>
                 </article>
-                <article class="card">
+                <article class="card card-responsable">
                     <div class="icon" aria-hidden="true">🛡️</div>
                     <h3>Responsable</h3>
                     <p>Promotion des logiciels libres, autonomie vis-à-vis des GAFAM, souveraineté numérique et appropriation des outils par la communauté éducative.</p>
                 </article>
-                <article class="card">
+                <article class="card card-durable">
                     <div class="icon" aria-hidden="true">🌱</div>
                     <h3>Durable</h3>
                     <p>Sobriété numérique, réemploi de machines avec Linux, allongement de la durée de vie des équipements et réduction de l'empreinte carbone.</p>
                 </article>
             </div>
+            <!-- Indice discret : Cliquez sur les trois piliers NIRD pour découvrir un secret... -->
+            <p class="hidden-hint">💡 Cliquez sur les trois piliers ci-dessus</p>
         </section>
 
         <section id="jalons" class="section">
@@ -155,7 +173,7 @@ planète et pour la souveraineté numérique des élèves.</p>
                     <div class="actions-list">
                         <label class="action-item">
                             <input type="checkbox" value="8" class="action-checkbox">
-                            Désigner un enseignant volontaire « contact NIRD ».
+                            Désigner un enseignant volontaire ┬½ contact NIRD ┬╗.
                         </label>
                         <label class="action-item">
                             <input type="checkbox" value="8" class="action-checkbox">
@@ -192,6 +210,9 @@ planète et pour la souveraineté numérique des élèves.</p>
                         </label>
                     </div>
                 </div>
+            </div>
+            
+            <div class="actions-columns" aria-label="Actions NIRD par pilier">
                 <div>
                     <h3>Durable</h3>
                     <div class="actions-list">
@@ -241,7 +262,7 @@ planète et pour la souveraineté numérique des élèves.</p>
 
         <section class="section" id="linux">
             <div class="section-header">
-                <p class="section-kicker">Linux au cœur</p>
+                <p class="section-kicker">Linux au c┼ôur</p>
                 <h2>PrimTux & Linux NIRD</h2>
                 <p>Deux distributions construites pour l'école : légères, stables, riches en logiciels libres, prêtes pour le reconditionnement.</p>
             </div>
@@ -256,14 +277,67 @@ planète et pour la souveraineté numérique des élèves.</p>
                     <div class="icon" aria-hidden="true">💻</div>
                     <h3>Linux NIRD (secondaire)</h3>
                     <p>Basée sur Linux Mint + Xfce avec un dock simple, une suite logicielle libre complète (dont NSI) et un mode USB autonome.</p>
-                    <a class="resource-link" href="#" aria-label="Téléchargement Linux NIRD à compléter">Téléchargement (à compléter)</a>
+                    <a class="resource-link" href="https://nird.forge.apps.education.fr/" target="_blank" rel="noreferrer">Documentation Linux NIRD</a>
                 </article>
                 <article class="card">
                     <div class="icon" aria-hidden="true">⚙️</div>
                     <h3>Boîte à outils</h3>
                     <p>Tutoriels d'installation, scripts Ventoy/Balena Etcher, liste des logiciels indispensables, et forum technique Tchap.</p>
-                    <a class="resource-link" href="#" aria-label="Lien vers la boîte à outils à compléter">Boîte à outils (à compléter)</a>
+                    <a class="resource-link" href="https://nird.forge.apps.education.fr/" target="_blank" rel="noreferrer">Ressources techniques NIRD</a>
                 </article>
+            </div>
+        </section>
+
+        <!-- Horloge Infernale - Date de migration NIRD -->
+        <section class="section light">
+            <div class="clock-container" id="clock-container" data-target-date="10/12/2025">
+                <h3 class="clock-title">L'Horloge Infernale - Date de migration NIRD</h3>
+                <p id="clock-target-date" style="text-align: center; color: var(--accent); margin-bottom: 1rem; font-weight: bold;">
+                    Date de migration vers le NIRD : 10/12/2025
+                </p>
+                <p style="text-align: center; color: var(--text-secondary); margin-bottom: 1rem;">
+                    Utilise les boutons ci-dessous pour atteindre la date cible
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 1rem;">
+                    <button class="clock-btn clock-hint-btn" id="clock-btn-hint">💡 Hint</button>
+                    <button class="clock-btn clock-reload-btn" id="clock-btn-reload">🔄 Reload</button>
+                </div>
+                <div class="clock-wrapper" id="clock-wrapper"></div>
+                <div class="clock-date-display" id="clock-date-display">01/01/2025</div>
+                <div class="clock-controls">
+                    <button class="clock-btn" id="clock-btn-day">+X jours</button>
+                    <button class="clock-btn" id="clock-btn-month">+X mois</button>
+                    <button class="clock-btn" id="clock-btn-year">+X ans</button>
+                    <button class="clock-btn" id="clock-btn-day-neg">-X jours</button>
+                </div>
+                <div class="clock-click-counter" id="clock-clicks-info" style="text-align: center; color: var(--accent); font-weight: bold; margin-top: 0.5rem;"></div>
+                <div class="clock-click-counter" id="clock-click-counter">Clics: 0</div>
+                <div class="clock-validation">
+                    <button class="clock-btn clock-validation-btn" id="clock-btn-validate">Valider la date</button>
+                    <div class="clock-validation-message" id="clock-validation-message" style="display: none;"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="rube-goldberg" class="section">
+            <div class="section-header">
+                <p class="section-kicker">Validation</p>
+                <h2>Machine de Rube Goldberg</h2>
+                <p>Une chaîne de transformations complexes pour valider votre texte. Entrez une phrase qui commence par "L" pour tester !</p>
+            </div>
+            <div class="rube-goldberg-container">
+                <div class="rube-goldberg-input">
+                    <input type="text" id="rube-text-input" placeholder="Entrez votre texte ici..." maxlength="200">
+                    <button id="rube-submit-btn" class="rube-btn">🚀 Lancer la machine</button>
+                </div>
+                <div id="rube-loading" class="rube-loading" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>La machine travaille... Patience !</p>
+                </div>
+                <div id="rube-results" class="rube-results" style="display: none;">
+                    <div id="rube-steps-container"></div>
+                    <div id="rube-final-result" class="rube-final-result"></div>
+                </div>
             </div>
         </section>
 
@@ -282,17 +356,27 @@ planète et pour la souveraineté numérique des élèves.</p>
                 <article class="resource-card">
                     <h3>Numérique responsable</h3>
                     <p>Boîte à outils pour réduire l'empreinte numérique, choisir des solutions libres et durables.</p>
-                    <a href="https://www.ademe.fr/" class="resource-link" target="_blank" rel="noreferrer">Ressources ADEME</a>
+                    <a href="https://www.ademe.fr/expertises/consommer-autrement/passer-a-laction/numerique-responsable" class="resource-link" target="_blank" rel="noreferrer">Ressources ADEME</a>
                 </article>
                 <article class="resource-card">
-                    <h3>Exemples d'établissements engagés</h3>
-                    <p>18 établissements pilotes : PrimTux à Blois, Linux NIRD au lycée Carnot, clubs de reconditionnement, etc.</p>
-                    <a href="https://www.cnll.fr/" class="resource-link" target="_blank" rel="noreferrer">Découvrir les initiatives</a>
+                    <h3>Logiciels libres éducatifs</h3>
+                    <p>Framasoft, AbulÉdu, Sésamath : des outils libres pour l'éducation, sans dépendance aux GAFAM.</p>
+                    <a href="https://framasoft.org/" class="resource-link" target="_blank" rel="noreferrer">Découvrir Framasoft</a>
                 </article>
                 <article class="resource-card">
-                    <h3>Collectivités pionnières</h3>
-                    <p>Lyon, Grenoble, Strasbourg, Angoulême : exemples de politiques publiques open source et de réemploi.</p>
-                    <a href="https://www.giprecia.net/" class="resource-link" target="_blank" rel="noreferrer">Voir un cas concret</a>
+                    <h3>Reconditionnement et réemploi</h3>
+                    <p>Guides pratiques pour reconditionner des PC, installer Linux, et allonger la durée de vie des équipements.</p>
+                    <a href="https://www.ecosystem.eco/fr/particuliers/que-faire-de-mes-dechets/ordinateur" class="resource-link" target="_blank" rel="noreferrer">Guide réemploi</a>
+                </article>
+                <article class="resource-card">
+                    <h3>Lycée Carnot de Bruay-la-Buissière</h3>
+                    <p>Retour d'expérience du lycée pilote qui a inspiré la démarche NIRD avec Linux et reconditionnement.</p>
+                    <a href="https://nird.forge.apps.education.fr/" class="resource-link" target="_blank" rel="noreferrer">Témoignages établissements</a>
+                </article>
+                <article class="resource-card">
+                    <h3>Communauté NIRD</h3>
+                    <p>Forum, échanges entre établissements, partage de bonnes pratiques et accompagnement mutuel.</p>
+                    <a href="https://nird.forge.apps.education.fr/" class="resource-link" target="_blank" rel="noreferrer">Rejoindre la communauté</a>
                 </article>
             </div>
         </section>
@@ -304,7 +388,30 @@ planète et pour la souveraineté numérique des élèves.</p>
         <a class="back-to-top" href="#top">Remonter</a>
     </footer>
 
-    <script src="js/main.js"></script>
+<!--    <script src="js/main.js"></script>-->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+
+    <!-- Overlay Snake 3D (cache par defaut) -->
+    <div id="snake3d-overlay" class="snake3d-hidden">
+        <div class="snake3d-container">
+            <button class="snake3d-close-btn" onclick="closeSnake3D()">X</button>
+            <button class="snake3d-restart-btn" onclick="restartSnake3D()">🔄 Redémarrer</button>
+            <div id="snake3d-canvas" class="canvas-widget"></div>
+        </div>
+    </div>
+
+    <!-- Scripts pour le Snake 3D -->
+    <script>
+        window.tiny_graphics = window.tiny_graphics || {};
+        window.classes = window.classes || {};
+    </script>
+    <script src="{{ url_for('static', filename='js/tiny-graphics.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/dependencies.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main-scene.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/snake3d-activation.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/clock.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/rube-goldberg.js') }}"></script>
 
 </body>
 </html>

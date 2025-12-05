@@ -1,0 +1,359 @@
+/* Horloge Infernale - Styles */
+.clock-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    background: var(--surface);
+    border-radius: var(--radius);
+    border: 2px solid var(--accent);
+    margin: 3rem auto;
+    max-width: 600px;
+    width: 100%;
+    clear: both;
+    position: relative;
+    z-index: 1;
+}
+
+.clock-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent);
+    text-align: center;
+}
+
+.clock-wrapper {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+.clock-face {
+    width: 100%;
+    height: 100%;
+    border: 8px solid var(--accent);
+    border-radius: 50%;
+    background: var(--bg);
+    position: relative;
+    box-shadow: 0 0 30px rgba(52, 211, 153, 0.3);
+}
+
+.clock-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background: var(--accent);
+    border-radius: 50%;
+    z-index: 10;
+    box-shadow: 0 0 10px rgba(52, 211, 153, 0.8);
+}
+
+.clock-hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom center;
+    background: var(--accent);
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(52, 211, 153, 0.5);
+    transition: transform 0.5s ease-in-out;
+}
+
+.clock-hand.hour {
+    width: 6px;
+    height: 80px;
+    margin-left: -3px;
+    z-index: 2;
+}
+
+.clock-hand.minute {
+    width: 4px;
+    height: 120px;
+    margin-left: -2px;
+    z-index: 1;
+}
+
+.clock-numbers {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.clock-number {
+    position: absolute;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--accent);
+    text-shadow: 0 0 10px rgba(52, 211, 153, 0.5);
+}
+
+/* Positionnement des nombres sur le cadran */
+.clock-number:nth-child(1) { top: 10px; left: 50%; transform: translateX(-50%); }
+.clock-number:nth-child(2) { top: 25%; right: 15px; }
+.clock-number:nth-child(3) { top: 50%; right: 10px; transform: translateY(-50%); }
+.clock-number:nth-child(4) { bottom: 25%; right: 15px; }
+.clock-number:nth-child(5) { bottom: 10px; left: 50%; transform: translateX(-50%); }
+.clock-number:nth-child(6) { bottom: 25%; left: 15px; }
+.clock-number:nth-child(7) { top: 50%; left: 10px; transform: translateY(-50%); }
+.clock-number:nth-child(8) { top: 25%; left: 15px; }
+
+.clock-controls {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 600px;
+}
+
+.clock-btn {
+    padding: 0.75rem 1.5rem;
+    background: var(--accent);
+    color: var(--bg);
+    border: none;
+    border-radius: var(--radius);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(52, 211, 153, 0.3);
+}
+
+.clock-btn:hover {
+    background: var(--accent-strong);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(52, 211, 153, 0.5);
+}
+
+.clock-btn:active {
+    transform: translateY(0);
+}
+
+.clock-btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.clock-date-display {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent);
+    padding: 1rem;
+    background: rgba(52, 211, 153, 0.1);
+    border-radius: var(--radius);
+    min-width: 200px;
+    text-shadow: 0 0 10px rgba(52, 211, 153, 0.5);
+}
+
+.clock-validation {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.clock-validation-btn {
+    padding: 1rem 2rem;
+    background: var(--accent);
+    color: var(--bg);
+    border: none;
+    border-radius: var(--radius);
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(52, 211, 153, 0.3);
+}
+
+.clock-validation-btn:hover {
+    background: var(--accent-strong);
+    transform: translateY(-2px);
+}
+
+.clock-reset-btn {
+    padding: 1rem 2rem;
+    background: rgba(239, 68, 68, 0.8);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.clock-reset-btn:hover {
+    background: rgba(239, 68, 68, 1);
+    transform: translateY(-2px);
+}
+
+.clock-reset-btn:active {
+    transform: translateY(0);
+}
+
+.clock-hint-btn {
+    padding: 0.75rem 1.5rem;
+    background: rgba(251, 191, 36, 0.8);
+    color: #0b1220;
+    border: none;
+    border-radius: var(--radius);
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+}
+
+.clock-hint-btn:hover {
+    background: rgba(251, 191, 36, 1);
+    transform: translateY(-2px);
+}
+
+.clock-reload-btn {
+    padding: 0.75rem 1.5rem;
+    background: rgba(59, 130, 246, 0.8);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.clock-reload-btn:hover {
+    background: rgba(59, 130, 246, 1);
+    transform: translateY(-2px);
+}
+
+.clock-hint-btn:active,
+.clock-reload-btn:active {
+    transform: translateY(0);
+}
+
+.clock-validation-message {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: var(--radius);
+    font-weight: bold;
+}
+
+.clock-validation-message.success {
+    background: rgba(52, 211, 153, 0.2);
+    color: var(--accent);
+    border: 2px solid var(--accent);
+}
+
+.clock-validation-message.error {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+    border: 2px solid #ef4444;
+}
+
+.clock-click-counter {
+    margin-top: 1rem;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.clock-click-counter.warning {
+    color: #f59e0b;
+}
+
+.clock-click-counter.danger {
+    color: #ef4444;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Mode hardcore - boutons qui bougent */
+.clock-controls.hardcore .clock-btn {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.clock-controls.hardcore .clock-btn.moved {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(-5px, 5px); }
+    50% { transform: translate(5px, -5px); }
+    75% { transform: translate(-5px, -5px); }
+}
+
+/* Grille pour le 7ème clic (4 lignes x 4 colonnes) */
+.clock-seventh-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.clock-seventh-btn {
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    background: var(--bg-secondary);
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clock-seventh-btn:hover {
+    background: var(--accent);
+    color: var(--bg-primary);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(52, 211, 153, 0.5);
+}
+
+.clock-seventh-btn:active {
+    transform: scale(0.95);
+}
+
+.clock-seventh-btn.negative {
+    border-color: #ef4444;
+    color: #ef4444;
+}
+
+.clock-seventh-btn.negative:hover {
+    background: #ef4444;
+    color: var(--bg-primary);
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.5);
+}
+
+/* Message de rappel au 6ème clic */
+.clock-remember-message {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--accent);
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: rgba(52, 211, 153, 0.1);
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    animation: pulse 2s infinite;
+}
+
